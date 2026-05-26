@@ -4,19 +4,273 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Flash Cards</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            color: white;
+            margin-bottom: 40px;
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        #container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .cartao {
+            perspective: 1000px;
+            cursor: pointer;
+        }
+
+        .cartao__conteudo {
+            position: relative;
+            width: 100%;
+            height: 250px;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+        }
+
+        .cartao.flipped .cartao__conteudo {
+            transform: rotateY(180deg);
+        }
+
+        .cartao__conteudo > * {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            border-radius: 15px;
+            font-size: 1.1em;
+            font-weight: 500;
+        }
+
+        .cartao__conteudo h3 {
+            position: absolute;
+            top: 15px;
+            left: 20px;
+            font-size: 0.9em;
+            background: rgba(0, 0, 0, 0.1);
+            padding: 5px 10px;
+            border-radius: 5px;
+            backface-visibility: visible;
+        }
+
+        .cartao__conteudo__pergunta {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .cartao__conteudo__resposta {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            transform: rotateY(180deg);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .cartao__conteudo__pergunta p,
+        .cartao__conteudo__resposta p {
+            text-align: center;
+            line-height: 1.6;
+        }
+
+        footer {
+            text-align: center;
+            color: white;
+            margin-top: 40px;
+            opacity: 0.8;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.8em;
+            }
+
+            #container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 <body>
-   <header>
-<h1>confira ai.....</h1>
-<nav>
-    <a href="#"></a>
-</nav>
-   </header> 
-   <main>
+    <header>
+        <h1>confira aí......</h1>
+        <nav>
+            <a href="#"></a>
+        </nav>
+    </header>
+    <main>
+        <section id="container">
 
-   </main>
-   <footer>
+            <!-- Cartão 1: Bhaskara (Corrigido) -->
+            <article class="cartao">
+                <div class="cartao__conteudo">
+                    <h3>Matemática</h3>
+                    <div class="cartao__conteudo__pergunta">
+                        <p>qual a formula de bhaskara</p>
+                    </div>
+                    <div class="cartao__conteudo__resposta">
+                        <p>x = (-b ± √(b² - 4ac)) / (2a)</p>
+                    </div>
+                </div>
+            </article>
 
-   </footer>
+            <!-- Cartão 2 -->
+            <article class="cartao">
+                <div class="cartao__conteudo">
+                    <h3>Matemática</h3>
+                    <div class="cartao__conteudo__pergunta">
+                        <p>Qual é o valor de x na equação de 1º grau: 3x - 12 = 0?</p>
+                    </div>
+                    <div class="cartao__conteudo__resposta">
+                        <p>x = 4</p>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Cartão 3 -->
+            <article class="cartao">
+                <div class="cartao__conteudo">
+                    <h3>Matemática</h3>
+                    <div class="cartao__conteudo__pergunta">
+                        <p>Em um triângulo retângulo, se os catetos medem 3 cm e 4 cm, qual é a medida da hipotenusa?</p>
+                    </div>
+                    <div class="cartao__conteudo__resposta">
+                        <p>5 cm</p>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Cartão 4 -->
+            <article class="cartao">
+                <div class="cartao__conteudo">
+                    <h3>Matemática</h3>
+                    <div class="cartao__conteudo__pergunta">
+                        <p>Quanto é 30% de 1500?</p>
+                    </div>
+                    <div class="cartao__conteudo__resposta">
+                        <p>450</p>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Cartão 5 -->
+            <article class="cartao">
+                <div class="cartao__conteudo">
+                    <h3>Matemática</h3>
+                    <div class="cartao__conteudo__pergunta">
+                        <p>Se uma função é dada por f(x) = 2x + 5, qual é o valor de f(3)?</p>
+                    </div>
+                    <div class="cartao__conteudo__resposta">
+                        <p>11</p>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Cartão 6 -->
+            <article class="cartao">
+                <div class="cartao__conteudo">
+                    <h3>Matemática</h3>
+                    <div class="cartao__conteudo__pergunta">
+                        <p>Qual é o próximo número da sequência (PA): 2, 7, 12, 17, ...?</p>
+                    </div>
+                    <div class="cartao__conteudo__resposta">
+                        <p>22</p>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Cartão 7 -->
+            <article class="cartao">
+                <div class="cartao__conteudo">
+                    <h3>Matemática</h3>
+                    <div class="cartao__conteudo__pergunta">
+                        <p>Lançando um dado comum de 6 faces, qual é a probabilidade de sair um número par?</p>
+                    </div>
+                    <div class="cartao__conteudo__resposta">
+                        <p>1/2 (ou 50%)</p>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Cartão 8 -->
+            <article class="cartao">
+                <div class="cartao__conteudo">
+                    <h3>Matemática</h3>
+                    <div class="cartao__conteudo__pergunta">
+                        <p>Qual é o valor do logaritmo de 100 na base 10? Log10(100) = ?</p>
+                    </div>
+                    <div class="cartao__conteudo__resposta">
+                        <p>2</p>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Cartão 9 -->
+            <article class="cartao">
+                <div class="cartao__conteudo">
+                    <h3>Matemática</h3>
+                    <div class="cartao__conteudo__pergunta">
+                        <p>Se um capital de R$ 1.000,00 rende 10% ao ano em juros simples, qual será o valor dos juros após 2 anos?</p>
+                    </div>
+                    <div class="cartao__conteudo__resposta">
+                        <p>R$ 200,00</p>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Cartão 10 -->
+            <article class="cartao">
+                <div class="cartao__conteudo">
+                    <h3>Matemática</h3>
+                    <div class="cartao__conteudo__pergunta">
+                        <p>Qual é a área de um quadrado que possui lados medindo 6 cm?</p>
+                    </div>
+                    <div class="cartao__conteudo__resposta">
+                        <p>36 cm²</p>
+                    </div>
+                </div>
+            </article>
+
+        </section>
+    </main>
+    <footer>
+    </footer>
+    <script>
+        // Adiciona funcionalidade de flip aos cartões
+        const cartoes = document.querySelectorAll('.cartao');
+
+        cartoes.forEach(cartao => {
+            cartao.addEventListener('click', function() {
+                this.classList.toggle('flipped');
+            });
+        });
+    </script>
 </body>
 </html>
